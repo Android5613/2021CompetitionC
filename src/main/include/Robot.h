@@ -19,7 +19,7 @@
 #include "networktables/NetworkTableEntry.h"
 #include "networktables/NetworkTableInstance.h"
 
-// Import ctre libraries. Requires the ctre libraries to be set up.
+// Import ctre libraries. Requires the ctre libraries to be set up. Allows for CAN bus motor controllers, among other things.
 #include "ctre/Phoenix.h"
 
 class Robot : public frc::TimedRobot {
@@ -56,16 +56,16 @@ class Robot : public frc::TimedRobot {
   frc::Timer time;
   
   // Defines the network table that is used by the limelight.
-  // std::shared_ptr<NetworkTable> limelighttable = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
+  std::shared_ptr<NetworkTable> limelighttable = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
 
   // A constant
-  //float f = 1;
+  float f = 1;
   // Aiming constant affected by f
-  //float KpAim = -0.1f;
+  float KpAim = -0.1f;
   // Movement constant affected by f
-  //float KpDistance = 0.1f;
+  float KpDistance = 0.1f;
   // The minimum commmand that can be used. May need adjustment.
-  //float min_command = 0.05f;
+  float min_command = 0.05f;
 
   // Defines our joystick. We have a custom controller which includes a partailly dismantled joystick
   // and an array of buttons. You should customize this to fit your controller/controllers.
