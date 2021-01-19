@@ -10,11 +10,11 @@ void Robot::limelight() {
   int angle = 30;
   
   // The target height - the camera mount height / tangent of ty + angle.
-  float distance = 64.25/(tan(ty+angle));
+  float distance = 18/(tan(ty+angle));
   // The error in the robot positioning.
   float heading_error = -tx;
   // The error in the robot's distance from the target.
-  float distance_error = distance - 24;
+  float distance_error = distance - 22;
   
   float steering_adjust = 0;
   
@@ -29,12 +29,19 @@ void Robot::limelight() {
 
   double left = distance_adjust + steering_adjust;
   double right = distance_adjust - steering_adjust;
-
+  
+  FLMotor.Set(-left);
+  RLMotor.Set(-left);
+  FRMotor.Set(right);
+  RRMotor.Set(right);
+  
+  /*
   // Moves the motors
   FLMotor.Set(ControlMode::PercentOutput, -left);
   RLMotor.Set(ControlMode::PercentOutput, -left);
   FRMotor.Set(ControlMode::PercentOutput, right);
   RRMotor.Set(ControlMode::PercentOutput, right);
+  */
 }
 
 void Robot::limelightauto() {
@@ -69,25 +76,37 @@ void Robot::limelightauto() {
     double left = distance_adjust + steering_adjust;
     double right = distance_adjust - steering_adjust;
   
+    FLMotor.Set(-left);
+    RLMotor.Set(-left);
+    FRMotor.Set(right);
+    RRMotor.Set(right);
+
+
+    /*
     // Moves the motors
     FLMotor.Set(ControlMode::PercentOutput, -left);
     RLMotor.Set(ControlMode::PercentOutput, -left);
     FRMotor.Set(ControlMode::PercentOutput, right);
     RRMotor.Set(ControlMode::PercentOutput, right);
-    if ( -0.5 < tx < 0.5 and -1 <= distance_error <= 1) {
-      
-    }
-
+    */
+    
   }
 
   else {
     float left = 0.5;
     float right = 0.5;
 
+    FLMotor.Set(left);
+    RLMotor.Set(left);
+    FRMotor.Set(right);
+    RRMotor.Set(right);
+
+    /*
     // Turns the robot at a safe speed to look for a target.
     FLMotor.Set(ControlMode::PercentOutput, left);
     RLMotor.Set(ControlMode::PercentOutput, left);
     FRMotor.Set(ControlMode::PercentOutput, right);
     RRMotor.Set(ControlMode::PercentOutput, right);
+    */
   }
 }

@@ -75,8 +75,22 @@ class Robot : public frc::TimedRobot {
   // An array of buttons.
   frc::Joystick Buttons{1};
   
+  frc::Spark FLMotor{0};
+  frc::Spark RLMotor{1};
+  frc::Spark FRMotor{2};
+  frc::Spark RRMotor{3};
+  
+  TalonSRX Flywheel{0};
+  TalonSRX IntakeRollers{1};
+  TalonSRX IntakePivot{2};
+  TalonSRX IntakePinion{3};
+  TalonSRX Picker{4};
+
+
+
   // Defines our Spark motor controllers.
   
+  /*
   // Wheel used to fire the power cells.
   frc::Spark Flywheel{5};
   // Spinning tube in front to grab power cells.
@@ -89,15 +103,18 @@ class Robot : public frc::TimedRobot {
   frc::Spark Low_Conveyor{4};
   // The top portion of the conveyor.
   frc::Spark High_Conveyor{0};
-  
+  */
+
+ /*
   // For the elevator when we finish it.
   frc::Spark Telescope{6};
   frc::Spark Winch{7};
-  
+*/  
   // Defines our TalonSRX drive motor controllers from ctre.
   // ctre motor controllers cannot be put into speedcontrollergroups, so create your own drive function.
   // It is simpler than you think.
 
+/*
   // Front left
   TalonSRX FLMotor{0};
   // Rear left
@@ -106,4 +123,8 @@ class Robot : public frc::TimedRobot {
   TalonSRX FRMotor{2};
   // Rear Right
   TalonSRX RRMotor{3};
+*/
 };
+
+
+
