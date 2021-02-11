@@ -1,16 +1,11 @@
 #include "Robot.h"
 
 void Robot::userControl() {
-  /*
   // For spinning the flywheel. It takes a second or two to get full speed.
-  if (DriveStick.GetRawButton(1)) {
-    Flywheel.Set(0.9);
-  }
-  // Else set to 0
-  else {
-    Flywheel.Set(0);
-  }
+
+
   // Spin the intake roller.
+  
   if (Buttons.GetRawButton(10)) {
     Grabber.Set(-1);
   }
