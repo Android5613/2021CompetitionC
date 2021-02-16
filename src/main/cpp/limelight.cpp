@@ -30,18 +30,13 @@ void Robot::limelight() {
   double left = distance_adjust + steering_adjust;
   double right = distance_adjust - steering_adjust;
   
-  FLMotor.Set(-left);
-  RLMotor.Set(-left);
-  FRMotor.Set(right);
-  RRMotor.Set(right);
   
-  /*
   // Moves the motors
   FLMotor.Set(ControlMode::PercentOutput, -left);
   RLMotor.Set(ControlMode::PercentOutput, -left);
   FRMotor.Set(ControlMode::PercentOutput, right);
   RRMotor.Set(ControlMode::PercentOutput, right);
-  */
+  
 }
 
 void Robot::limelightauto() {
@@ -75,38 +70,23 @@ void Robot::limelightauto() {
 
     double left = distance_adjust + steering_adjust;
     double right = distance_adjust - steering_adjust;
-  
-    FLMotor.Set(-left);
-    RLMotor.Set(-left);
-    FRMotor.Set(right);
-    RRMotor.Set(right);
 
-
-    /*
     // Moves the motors
     FLMotor.Set(ControlMode::PercentOutput, -left);
     RLMotor.Set(ControlMode::PercentOutput, -left);
     FRMotor.Set(ControlMode::PercentOutput, right);
     RRMotor.Set(ControlMode::PercentOutput, right);
-    */
     
   }
 
   else {
     float left = 0.5;
     float right = 0.5;
-
-    FLMotor.Set(left);
-    RLMotor.Set(left);
-    FRMotor.Set(right);
-    RRMotor.Set(right);
-
-    /*
+    
     // Turns the robot at a safe speed to look for a target.
     FLMotor.Set(ControlMode::PercentOutput, left);
     RLMotor.Set(ControlMode::PercentOutput, left);
     FRMotor.Set(ControlMode::PercentOutput, right);
     RRMotor.Set(ControlMode::PercentOutput, right);
-    */
   }
 }

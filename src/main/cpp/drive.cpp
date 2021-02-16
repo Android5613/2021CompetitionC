@@ -12,17 +12,11 @@ void Robot::arcade_drive() {
   double left = speed+turn;
   double right = speed-turn;
   
-  FLMotor.Set(-left);
-  RLMotor.Set(-left);
-  FRMotor.Set(right);
-  RRMotor.Set(right);
-  
-  /*
   // Moves the motors
   FLMotor.Set(ControlMode::PercentOutput, -left);
   RLMotor.Set(ControlMode::PercentOutput, -left);
   FRMotor.Set(ControlMode::PercentOutput, right);
   RRMotor.Set(ControlMode::PercentOutput, right);
-  */
+  
 }
 
