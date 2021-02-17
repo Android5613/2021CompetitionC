@@ -19,6 +19,7 @@
 #include "networktables/NetworkTableEntry.h"
 #include "networktables/NetworkTableInstance.h"
 #include <frc/Compressor.h>
+#include "rev/SparkMax.h"
 
 // Import ctre libraries. Requires the ctre libraries to be set up. Allows for CAN bus motor controllers, among other things.
 #include "ctre/Phoenix.h"
@@ -79,7 +80,7 @@ private:
 
   
   // Wheel used to fire the power cells.
-  frc::Spark Flywheel{5};
+  rev::SparkMax Flywheel{5};
   // Spinning tube in front to grab power cells.
   frc::Spark Grabber{1};
   // Used to move the arm the Grabber is attached to.
@@ -96,10 +97,10 @@ private:
   frc::Spark Telescope{6};
   frc::Spark Winch{7};
   */
+ 
   // Defines our TalonSRX drive motor controllers from ctre.
   // ctre motor controllers cannot be put into speedcontrollergroups, so create your own drive function.
   // It is simpler than you think.
-
   
   // Front left
   TalonSRX FLMotor{0};
