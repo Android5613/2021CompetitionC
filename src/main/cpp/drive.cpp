@@ -5,12 +5,12 @@ void Robot::arcade_drive() {
   
   double speed = 0;
   double turn = 0;
-  
+
   if (DriveStick.GetY() >=0.05) {
-    double speed = DriveStick.GetY();
+    speed = DriveStick.GetY();
   } 
   if (DriveStick.GetZ() >=0.05) {
-    double turn = DriveStick.GetZ() * -.45;
+    turn = DriveStick.GetZ() * -.45;
   } 
   
   // Sets the motors to be the speed with the turn value.
