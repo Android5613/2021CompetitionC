@@ -18,11 +18,13 @@ void Robot::limelight() {
   
   float steering_adjust = 0;
   
-  if (tx > 0.5) {
-    float steering_ajust = KpAim*heading_error - min_command;
+  if (tx > 0.5) 
+  {
+    steering_adjust = KpAim*heading_error - min_command;
   }
-  else if (tx < -0.5) {
-    float steering_adjust = KpAim*heading_error - min_command;
+  else if (tx < -0.5) 
+  {
+    steering_adjust = KpAim*heading_error - min_command;
   }
   
   float distance_adjust = KpDistance * distance_error;
@@ -60,10 +62,10 @@ void Robot::limelightauto() {
     float steering_adjust = 0;
   
     if (tx > 0.5) {
-      float steering_ajust = KpAim*heading_error - min_command;
+      steering_adjust = KpAim*heading_error - min_command;
     }
     else if (tx < -0.5) {
-      float steering_adjust = KpAim*heading_error - min_command;
+      steering_adjust = KpAim*heading_error - min_command;
     }
   
     float distance_adjust = KpDistance * distance_error;
