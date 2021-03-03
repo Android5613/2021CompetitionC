@@ -19,7 +19,7 @@ Robot::Robot() {
 }
 // Run on robot startup.
 void Robot::RobotInit() {
-  
+  DoubleSolenoid.Set(frc::DoubleSolenoid::Value::kReverse);
 }
 // Run with every packet recieved from robot.
 void Robot::RobotPeriodic() {

@@ -19,7 +19,8 @@
 #include "networktables/NetworkTableEntry.h"
 #include "networktables/NetworkTableInstance.h"
 #include <frc/Compressor.h>
-#include "rev/SparkMax.h"
+#include <frc/PWMSparkMax.h>
+#include <frc/DoubleSolenoid.h>
 
 // Import ctre libraries. Requires the ctre libraries to be set up. Allows for CAN bus motor controllers, among other things.
 #include "ctre/Phoenix.h"
@@ -80,7 +81,7 @@ private:
 
   
   // Wheel used to fire the power cells.
-  rev::SparkMax Flywheel{5};
+  frc::PWMSparkMax Flywheel{5};
   // Spinning tube in front to grab power cells.
   frc::Spark Grabber{1};
   // Used to move the arm the Grabber is attached to.
@@ -111,4 +112,19 @@ private:
   // Rear Right
   TalonSRX RRMotor{3};
 
+  // Initialized the compressor object. Technically not necessary, but allows you to access certain
+  // functions to query the status of the compressor.
+  frc::Compressor Compressor{0};
+
+  // Stores whether the compressor is on or off as a true/false value.
+  bool enabled = Compressor.Enabled();
+
+  // Activates a double solenoid. Plug the forward channel into port 1 and the reverse into port 2.
+  // Can bus Id is assumed to be 0. Unless controlled it is by default set to off.
+  frc::DoubleSolenoid DoubleSolenoid{0, 1, 2};
+  // Sets the starting position to the Reverse. When you want to switch the direction the doubleSolenoid is going
+  // use TestSolenoid.Toggle();
+
+  
+  
 };
