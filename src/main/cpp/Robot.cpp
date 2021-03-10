@@ -19,7 +19,13 @@ Robot::Robot() {
 }
 // Run on robot startup.
 void Robot::RobotInit() {
+  // Some commands do not work with being in the header file Robot.H,
+  // so they have to reside here in RobotInit.
+
+  // If the solenoid immediately extends the thing, change the value here to KForward.
   DoubleSolenoid.Set(frc::DoubleSolenoid::Value::kReverse);
+  // Sets the distance traveled stored in the encoder class per pulse. It is set up in Distance/Pulse.
+  encoder.SetDistancePerPulse(1/1);
 }
 // Run with every packet recieved from robot.
 void Robot::RobotPeriodic() {

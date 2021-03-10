@@ -21,6 +21,7 @@
 #include <frc/Compressor.h>
 #include <frc/PWMSparkMax.h>
 #include <frc/DoubleSolenoid.h>
+#include <frc/Encoder.h>
 
 // Import ctre libraries. Requires the ctre libraries to be set up. Allows for CAN bus motor controllers, among other things.
 #include "ctre/Phoenix.h"
@@ -93,6 +94,9 @@ private:
   // The top portion of the conveyor.
   frc::Spark High_Conveyor{0};
 
+  // Basic encoder initiating statement. Data can be read of of an encoder plugged into these ports.
+  frc::Encoder encoder{0, 1};
+  
   /*
   // For the elevator when we finish it.
   frc::Spark Telescope{6};
