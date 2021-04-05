@@ -1,68 +1,80 @@
 #include "Robot.h"
 
 void Robot::userControl() {
-  // For spinning the flywheel. It takes a second or two to get full speed.
 
 
-  // Spin the intake roller.
-  
-  if (Buttons.GetRawButton(10)) {
-    Grabber.Set(-1);
+  // For spinning the flywheel in "shooting mode". It takes a second or two to get full speed.
+  if (DriveStick.GetRawButton(1)) {
+    Flywheel.Set(1);   //inverted motor
   }
-  // Spin it in reverse to release the power cell.
-  else if (Buttons.GetRawButton(7)) {
+  else if (DriveStick.GetRawButton(2)) {  //reverses shooter at 30% power to clear jams
+    Flywheel.Set(-.3);
+  }
+  else {
+    Flywheel.Set(0);  //else turn  off
+  }
+  
+////////////////////////////////////////////////////////////////
+  // Spin the intake roller
+  if (ButtonPad.GetRawButton(12)) {
+    Grabber.Set(-1);    //inverted motor
+  }
+  //reverses rollers to clear jams
+  else if (ButtonPad.GetRawButton(9)) { 
     Grabber.Set(1);
   }
-  // Else set to 0.
+  //else turn off
   else {
-    Grabber.Set(0);
+    Grabber.Set(0); 
   }
-  // Pop the grabber arm out.
-  if (Buttons.GetRawButton(3)) {
-    Grabber_Arm.Set(1);
+////////////////////////////////////////////////////////////////
+  // Deploy inatke arm
+  if (ButtonPad.GetRawButton(10)) {
+    GrabberArm.Set(-.5);   //inverted motor; doesn't need full speed (especially since gravity helps)
   }
-  // Move it back.
-  else if (Buttons.GetRawButton(6)) {
-    Grabber_Arm.Set(-1);
+  // Retract intake arm
+  else if (ButtonPad.GetRawButton(7)) {
+    GrabberArm.Set(.6);
   }
   // Else set to 0
   else {
-    Grabber_Arm.Set(0);
+    GrabberArm.Set(0);
   }
-  // Set the conveyor forwards.
-  if (Buttons.GetRawButton(12)) {
-    High_Conveyor.Set(-1);
-    Low_Conveyor.Set(1);
+////////////////////////////////////////////////////////////////
+  // Spin carousel ccw
+  if (ButtonPad.GetRawButton(11)) {
+    Carousel.Set(.35);   //Carousel shouldn't run full speed, might break; try 40%
   }
-  // Set it backwards.
-  else if (Buttons.GetRawButton(9)) {
-    High_Conveyor.Set(1);
-    Low_Conveyor.Set(-1);
+  // Spin carousel cw
+  else if (ButtonPad.GetRawButton(8)) {
+    Carousel.Set(-.35);
   }
   // Else set to 0
   else {
-    Low_Conveyor.Set(0);
-    High_Conveyor.Set(0);
+    Carousel.Set(0);
   }
-  // Set the transition wheel to forwards.
-  if (Buttons.GetRawButton(11)) {
-    Transition.Set(-0.7);
+////////////////////////////////////////////////////////////////
+  // Set the transition wheel to forwards (intaking).
+  if (DriveStick.GetRawButton(3)) {
+    Transition.Set(-1);   //inverted motor
   }
   // Set it to backwards.
-  else if (Buttons.GetRawButton(8)) {
-    Transition.Set(0.7);
+  else if (DriveStick.GetRawButton(4)) {
+    Transition.Set(.7);    //reverse does not need full speed
   }
   // Else set to 0
   else {
     Transition.Set(0);
+////////////////////////////////////////////////////////////////
   }
   // If button one is pressed, give the limelight control of the drive.
-/*  if (Buttons.GetRawButton(1)) {
+/*  if (ButtonPad.GetRawButton(1)) {
     limelight();
   }
   // Else give it to the driver.
   else {
     arcade_drive();
   }*/
+ 
 }
 
