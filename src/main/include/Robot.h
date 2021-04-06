@@ -47,11 +47,11 @@ public:
   void DisabledPeriodic() override;
   void TestInit() override;
   void TestPeriodic() override;
-
+  void AutonomousPeriodic() override;
 private:
   // Includes the functions in the private section so they can use the variables.
 
-  void AutonomousPeriodic() override;
+
   // Drive the robot.
   void arcade_drive(void);
   // Takes user input.
