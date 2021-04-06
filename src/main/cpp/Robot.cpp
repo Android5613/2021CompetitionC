@@ -23,7 +23,7 @@ void Robot::RobotInit() {
   // so they have to reside here in RobotInit.
 
   // If the solenoid immediately extends the thing, change the value here to KForward.
-  DoubleSolenoid.Set(frc::DoubleSolenoid::Value::kReverse);
+  DoubleSolenoid.Set(frc::DoubleSolenoid::Value::kForward);
   // Sets the distance traveled stored in the encoder class per pulse. It is set up in Distance/Pulse.
   encoder.SetDistancePerPulse(1/1);
 }
