@@ -80,7 +80,7 @@ private:
 
   ///////////////////////////////////////////////////////////////
 
-  // Defines our joysticks. We have a custom controller which includes a partailly dismantled joystick
+  // Defines our joysticks. We have a custom controller which includes a partially dismantled joystick
   // and an array of buttons. You should customize this to fit your controller/controllers.
 
   // Joystick for driving.

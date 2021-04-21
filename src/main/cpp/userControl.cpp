@@ -70,13 +70,13 @@ void Robot::userControl() {
   ////////////////////////////////////////////////////////////////
 
   // If button one is pressed, give the limelight control of the drive.
-/*  if (ButtonPad.GetRawButton(1)) {
+  if (Buttons.GetRawButton(1)) {
     limelight();
   }
   // Else give it to the driver.
   else {
     arcade_drive();
-  }*/
+  }
  
 }
 
