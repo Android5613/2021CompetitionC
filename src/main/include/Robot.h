@@ -20,6 +20,7 @@
 #include <frc/PWMSparkMax.h>
 #include <frc/DoubleSolenoid.h>
 #include <frc/Encoder.h>
+#include "cameraserver/CameraServer.h"
 
 // Importing camera server.
 #include "cscore_cpp.h"
@@ -60,6 +61,8 @@ private:
   void limelight(void);
   // limelight customized for the autonomous.
   void limelightauto(void);
+  // Camera server functions as a temporary standin for the nonfunctional limelight.
+  void cameraserver(void);
 
   // Defines a timer.
   frc::Timer time;
@@ -77,7 +80,6 @@ private:
   float KpDistance = 0.1f;
   // The minimum commmand that can be used. May need adjustment.
   float min_command = 0.05f;
-
   ///////////////////////////////////////////////////////////////
 
   // Defines our joysticks. We have a custom controller which includes a partially dismantled joystick

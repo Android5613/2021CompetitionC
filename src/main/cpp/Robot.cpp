@@ -11,9 +11,8 @@
 
 //#include <frc/smartdashboard/SmartDashboard.h>
 
-//#include "cameraserver/CameraServer.h"
+#include "cameraserver/CameraServer.h"
 
-// Tells the drive to turn off after .1 seconds and starts a timer.
 Robot::Robot() {
   
 }
@@ -26,6 +25,9 @@ void Robot::RobotInit() {
   DoubleSolenoid.Set(frc::DoubleSolenoid::Value::kForward);
   // Sets the distance traveled stored in the encoder class per pulse. It is set up in Distance/Pulse.
   encoder.SetDistancePerPulse(1/1);
+
+  //
+  cameraserver();
 }
 // Run with every packet recieved from robot.
 void Robot::RobotPeriodic() {
